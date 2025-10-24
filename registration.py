@@ -1,15 +1,18 @@
-def username_exists(username):
+import os
+
+def usernameExists(username):
+    db_path = os.path.join("database", "players.txt")
     try:
-        with open("players.txt", "r") as file:
+        with open(db_path, "r") as file:
             for line in file:
                 saved_username, _ = line.strip().split(",")
-                if saved_username.lower() == username.lower():
+                if saved_username == username:
                     return True
     except FileNotFoundError:
         return False
     return False
 
-def register_user():
+def registerUser():
     print("REGISTER NEW PLAYER")
 
     while True:
@@ -18,8 +21,8 @@ def register_user():
             print("Username cannot be empty. Please try again.")
             continue
 
-        if username_exists(username):
-            print(f"Username '{username}' is already taken. Please choose another one.")
+        if usernameExists(username):
+            print(f"Username '{username}' already exists. Please choose another.")
             continue
 
         password = input("Enter password: ").strip()
@@ -27,11 +30,10 @@ def register_user():
             print("Password cannot be empty. Please try again.")
             continue
 
-        with open("players.txt", "a") as file:
+        os.makedirs("database", exist_ok=True)
+        db_path = os.path.join("database", "players.txt")
+        with open(db_path, "a") as file:
             file.write(f"{username},{password}\n")
 
         print(f"Registration successful! Welcome, {username}!")
         break
-
-if __name__ == "__main__":
-    register_user()
