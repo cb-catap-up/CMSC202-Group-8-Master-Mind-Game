@@ -1,4 +1,5 @@
 import os
+from cipher import encryptPassword
 
 def usernameExists(username):
     db_path = os.path.join("database", "players.txt")
@@ -30,10 +31,12 @@ def registerUser():
             print("Password cannot be empty. Please try again.")
             continue
 
+        encrypted_password = encryptPassword(password)
+
         os.makedirs("database", exist_ok=True)
         db_path = os.path.join("database", "players.txt")
         with open(db_path, "a") as file:
-            file.write(f"{username},{password}\n")
+            file.write(f"{username},{encrypted_password}\n")
 
         print(f"Registration successful! Welcome, {username}!")
         break
