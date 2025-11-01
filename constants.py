@@ -16,7 +16,7 @@ DETAILED_INSTRUCTION = "Detailed Instruction"
 STEP_ONE_INSTRUCTION = "At the beginning of the game, you will see a decoding board with ten rows of four empty circles each. " \
 "Your task is to guess which color pattern is encrypted."
 
-STEP_TWO_INSTRUCTION = "Enter a sequence of 4 letters for your guesses (you will have Red, Blue, Green, Orange, Purple, Brown, Gray, Pink, and Yellow)." \
+STEP_TWO_INSTRUCTION = "Enter a sequence of 4 letters for your guesses (you will have Red, Blue, Green, Orange, White, and Yellow)." \
 "Hit enter to submit your guess."
 
 STEP_THREE_INSTRUCTION = "The table near the decoding board shows how close you are to the correct answer () means correct," \
