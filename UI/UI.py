@@ -37,5 +37,3 @@ def evaluateAndPrintFeedback(secret_code, guess):
     # Print feedback in the same format as guess
     print(f"[ {' | '.join(result)} ]")
 
-# Test function call
-evaluateAndPrintFeedback('RRYG', 'RGRB')
