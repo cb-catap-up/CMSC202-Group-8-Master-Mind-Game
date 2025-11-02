@@ -33,7 +33,7 @@ def playMastermind():
             if is_valid:
                 break  # Exit the while loop if input is valid
             else:
-                print(f"❌ {error_message}")
+                print(f"{error_message}")
                 print("Please try again.")
         
         is_match = checkMatch(color_set, g)
