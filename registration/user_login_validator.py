@@ -2,34 +2,25 @@ import os
 from registration.cipher import decryptPassword
 from registration.registration import usernameExists
 from helpers.clear_console import clear_console
-from helpers.yes_or_no_input_validator import validateYesOrNoInput
-from registration.registration import registerUser
 
+def askForRegistration():
 
-def userLogin(show_registration=True):
+    while True:
+        new_player = str(input('Are you a new user Y / N?: ')).lower()
+        
+        if new_player == 'y':
+            return True
+        if new_player == 'n':
+            return False
 
-    if show_registration:
-        new_player = str(input('Are you a new user Y / N?: '))
+        if new_player!= 'y' and new_player != 'n':
+            print("\nInvalid input. Please enter a valid one.")
 
-        if validateYesOrNoInput(new_player, userLogin):
-            # register user
-            registerUser()
-
-        clear_console()
-
+def askAndValidateUsernameAndPassWord():
+    # ask to input username
     user_name = str(input('\nEnter username: '))
-
+    # ask to input password
     password = str(input('\nEnter password: '))
-
-    # check if username and password is correct
-    if readAndValidateUsernameAndPassWord(user_name=user_name, pass_word=password, user_login=userLogin):
-        clear_console()
-        return user_name
-    
-    return False
-
-
-def readAndValidateUsernameAndPassWord(user_name, pass_word, user_login):
     # save all read files with username and password as a dictionary
     username_and_password_map = {}
     # Check if password is correct
@@ -44,20 +35,20 @@ def readAndValidateUsernameAndPassWord(user_name, pass_word, user_login):
             raise Exception('\nWrong user name, please enter a registered user name')
         
 
-        if not (decryptPassword(username_and_password_map[user_name]) == pass_word):
+        if not (decryptPassword(username_and_password_map[user_name]) == password):
             raise Exception('\nWrong password, please enter the correct password')
             
 
     except Exception as e:
-        # clear console
+        # # clear console
         clear_console()
         # print error
         print(e)
         # run userlogin again
-        user_login(False)
+        askAndValidateUsernameAndPassWord()
 
     except FileNotFoundError:
 
-        return False
+        return None
     
-    return True
+    return user_name

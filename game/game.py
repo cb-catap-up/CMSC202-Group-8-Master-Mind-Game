@@ -1,6 +1,6 @@
 import random
-from validation import validateInput
-from scoring import calculateScore
+from game.validation import validateInput
+from game.scoring import calculateScore
 
 #Generate secret code of 4 colors
 def randomizer (colors):

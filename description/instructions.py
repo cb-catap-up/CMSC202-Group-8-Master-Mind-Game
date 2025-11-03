@@ -1,4 +1,4 @@
-from helpers.yes_or_no_input_validator import validateYesOrNoInput
+from description.descriptions_input_validator import validateDescriptionsInput
 
 from constants import (
     STEP_ONE_INSTRUCTION,
@@ -26,4 +26,4 @@ def showInstruction(hide_instruction = False):
 
     would_you_continue_playing = str(input("\nWould you like to continue the game Y or N?: "))
 
-    return validateYesOrNoInput(would_you_continue_playing, showInstruction)
+    return validateDescriptionsInput(would_you_continue_playing, showInstruction)

@@ -47,6 +47,5 @@ def registerUser():
 
         print(f"\nRegistration successful! Welcome, {username}!")
 
-        clear_console()
 
         return username

@@ -1,10 +1,13 @@
 from constants import DESCRIPTION, ASCII_ART
-from helpers.yes_or_no_input_validator import validateYesOrNoInput
+from description.descriptions_input_validator import validateDescriptionsInput
 from description.instructions import showInstruction
 from helpers.clear_console import clear_console
 
 # This function provides the rules and decription on how to play the game
 def showDescription(clear_description = False):
+
+    # clear console for better user experiece
+    clear_console()
 
     if not clear_description:
         # prints out art for game
@@ -18,7 +21,7 @@ def showDescription(clear_description = False):
     is_game_starting = str(input("\nWould you like to play the game Y or N?: "))
 
     # this validates the input for the user if the users wants to play
-    validated_game_starting = validateYesOrNoInput(is_game_starting, showDescription)
+    validated_game_starting = validateDescriptionsInput(is_game_starting, showDescription)
 
 
     if validated_game_starting:
@@ -26,7 +29,7 @@ def showDescription(clear_description = False):
         show_instruction = str(input("\nWould you like to see the instructions Y or N?: "))
 
         # this validates the input for the user if the user wants to see the instruction
-        validated_show_instruction = validateYesOrNoInput(show_instruction, showDescription)
+        validated_show_instruction = validateDescriptionsInput(show_instruction, showDescription)
 
         if validated_show_instruction:
             # shows a more detailed instruction
