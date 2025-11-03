@@ -6,4 +6,3 @@ def leaderboard():
             print(content)
     except FileNotFoundError:
         print("Error: The file does not exist!")
-    
