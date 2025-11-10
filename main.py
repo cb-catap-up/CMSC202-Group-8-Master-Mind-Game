@@ -5,6 +5,7 @@ from registration.user_login_validator import askForRegistration
 from registration.user_login_validator import askAndValidateUsernameAndPassWord
 from helpers.clear_console import clear_console
 from game.game import playMastermind
+from helpers.global_variables import saveGlobalVariable, readGlobalVariable, clearGlobalVariables
 
 # main function for the application
 def runApplication():
@@ -31,9 +32,15 @@ def runApplication():
             clear_console()
             print('Please enter your credentials again')
 
-        user_name = askAndValidateUsernameAndPassWord()
+        # login user
+        askAndValidateUsernameAndPassWord()
+
         # clears console for better experience for the players
         clear_console()
+
+        # start and play game
+        playMastermind()
+
         break
 
 

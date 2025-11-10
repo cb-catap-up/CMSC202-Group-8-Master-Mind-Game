@@ -1,3 +1,4 @@
+import os
 # ASCII art for app
 ASCII_ART = ("""
    __  ___         __                _         __  _____               __
@@ -26,3 +27,7 @@ STEP_FOUR_INSTRUCTION = "Start with different colors to test as many variations 
 
 STEP_FIVE_INSTRUCTION = 'You have ten attempts to crack the code by the number of lines on the board.' \
 'The game ends when you find the correct sequence and all the key circles turn (), or when you run out of tries.'
+
+GLOBALS_PATH = os.path.join("globals", "global_variables.txt")
+
+SCORE_PATH = os.path.join('database', 'score.txt')

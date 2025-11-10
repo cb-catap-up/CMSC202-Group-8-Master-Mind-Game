@@ -1,7 +1,10 @@
 import os
+import time
 from registration.cipher import decryptPassword
 from registration.registration import usernameExists
 from helpers.clear_console import clear_console
+from helpers.global_variables import saveGlobalVariable
+
 
 def askForRegistration():
 
@@ -47,8 +50,11 @@ def askAndValidateUsernameAndPassWord():
         # run userlogin again
         askAndValidateUsernameAndPassWord()
 
-    except FileNotFoundError:
-
-        return None
+    except FileNotFoundError as e:
+        # print error
+        print(e)
     
-    return user_name
+    # save to globals
+    saveGlobalVariable('current_user', user_name)
+    # this allows time for python to write to file
+
