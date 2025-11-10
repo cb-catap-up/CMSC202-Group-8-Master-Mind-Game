@@ -4,6 +4,7 @@ from game.scoring import calculateScore
 from helpers.global_variables import readGlobalVariable
 from game.write_score_to_file import writeScoreToFile
 from helpers.clear_console import clear_console
+from helpers.global_variables import saveGlobalVariable
 
 #Generate secret code of 4 colors
 def randomizer (colors):
@@ -25,8 +26,8 @@ def playMastermind():
     valid_colors = ["R", "G", "B", "Y", "W", "O"]  # Available colors
     color_set = randomizer(valid_colors)
     
-    print(f"Available colors: {', '.join(valid_colors)}")
-    print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)")
+    print(f"Available colors: {', '.join(valid_colors)}\n")
+    print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)\n")
     
     for count in range(0, 10):
         
@@ -40,7 +41,7 @@ def playMastermind():
                 break  # Exit the while loop if input is valid
             else:
                 print(f"{error_message}")
-                print("Please try again.\n")
+                print("\nPlease try again.\n")
         
         is_match = checkMatch(color_set, g)
         #add UI to show black pegs when color is correct and white pegs if incorrect
@@ -50,14 +51,17 @@ def playMastermind():
             score = calculateScore(attempt_number)
             # write score
             writeScoreToFile(user_name, score)
-            print("Your guess is correct!")
+            saveGlobalVariable('current_user_score', score)
+            print("Your guess is correct!\n")
+            break
 
         else:
             if count < 9:
-                print("Try again.")
+                print("\nTry again.\n")
             else:
                 clear_console()
                 print("You've used all 10 attempts.")
-                print(f"The secret code was: {color_set}")
+                print(f"\nThe secret code was: {color_set}")
                 # save 0 points for losing
                 writeScoreToFile(user_name, 0)
+                saveGlobalVariable('current_user_score', score)
