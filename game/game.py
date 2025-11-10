@@ -1,6 +1,9 @@
 import random
-from validation import validateInput
-from scoring import calculateScore
+from game.validation import validateInput
+from game.scoring import calculateScore
+from helpers.global_variables import readGlobalVariable
+from game.write_score_to_file import writeScoreToFile
+from helpers.clear_console import clear_console
 
 #Generate secret code of 4 colors
 def randomizer (colors):
@@ -16,6 +19,9 @@ def checkMatch(secret_code, guess):
 
 #Main game function
 def playMastermind():
+
+    # gets currently logged in user
+    user_name = readGlobalVariable('current_user')
     valid_colors = ["R", "G", "B", "Y", "W", "O"]  # Available colors
     color_set = randomizer(valid_colors)
     
@@ -34,7 +40,7 @@ def playMastermind():
                 break  # Exit the while loop if input is valid
             else:
                 print(f"{error_message}")
-                print("Please try again.")
+                print("Please try again.\n")
         
         is_match = checkMatch(color_set, g)
         #add UI to show black pegs when color is correct and white pegs if incorrect
@@ -42,12 +48,16 @@ def playMastermind():
         if is_match:
             attempt_number = count + 1
             score = calculateScore(attempt_number)
+            # write score
+            writeScoreToFile(user_name, score)
             print("Your guess is correct!")
-            return score  # Return the score
+
         else:
             if count < 9:
                 print("Try again.")
             else:
+                clear_console()
                 print("You've used all 10 attempts.")
                 print(f"The secret code was: {color_set}")
-                return 0  # Return 0 points for losing
+                # save 0 points for losing
+                writeScoreToFile(user_name, 0)
