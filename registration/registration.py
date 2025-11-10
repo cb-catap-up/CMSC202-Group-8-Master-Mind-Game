@@ -1,5 +1,6 @@
 import os
-from cipher import encryptPassword
+from registration.cipher import encryptPassword
+from helpers.clear_console import clear_console
 
 def usernameExists(username):
     # Check if a given username already exists in the player database.
@@ -19,7 +20,7 @@ def registerUser():
     print("REGISTER NEW PLAYER")
 
     while True:
-        username = input("Enter username: ").strip()
+        username = input("\nEnter username: ").strip()
         if username == "":
             print("Username cannot be empty. Please try again.")
             continue
@@ -28,7 +29,7 @@ def registerUser():
             print(f"Username '{username}' already exists. Please choose another.")
             continue
 
-        password = input("Enter password: ").strip()
+        password = input("\nEnter password: ").strip()
         if password == "":
             print("Password cannot be empty. Please try again.")
             continue
@@ -44,5 +45,7 @@ def registerUser():
         with open(db_path, "a") as file:
             file.write(f"{username},{encrypted_password}\n")
 
-        print(f"Registration successful! Welcome, {username}!")
+        print(f"\nRegistration successful! Welcome, {username}!")
+
+
         return username
