@@ -25,7 +25,7 @@ def playMastermind():
     user_name = readGlobalVariable('current_user')
     valid_colors = ["R", "G", "B", "Y", "W", "O"]  # Available colors
     color_set = randomizer(valid_colors)
-    
+
     print(f"Available colors: {', '.join(valid_colors)}\n")
     print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)\n")
     
@@ -64,4 +64,4 @@ def playMastermind():
                 print(f"\nThe secret code was: {color_set}")
                 # save 0 points for losing
                 writeScoreToFile(user_name, 0)
-                saveGlobalVariable('current_user_score', score)
+                saveGlobalVariable('current_user_score', 0)
