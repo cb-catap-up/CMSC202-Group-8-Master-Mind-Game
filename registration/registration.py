@@ -17,7 +17,7 @@ def usernameExists(username):
 
 def registerUser():
     # Register a new player and return the username upon successful registration.
-    print("REGISTER NEW PLAYER")
+    print("Register New Player")
 
     while True:
         username = input("\nEnter username: ").strip()

@@ -30,7 +30,7 @@ def leaderboard():
         # clear console for better user experience
         clear_console()
         # show leaderbords
-        print("LEADERBOARDS\n")
+        print("Leaderboards\n")
         leaders = getTopFiveLeaders(leaderboard_list)
 
         for lead in leaders:
