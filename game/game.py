@@ -34,7 +34,6 @@ def playMastermind():
     # random color set
     color_set = randomizer(valid_colors)
 
-    print(color_set)
 
     for count in range(0, 10):
         
