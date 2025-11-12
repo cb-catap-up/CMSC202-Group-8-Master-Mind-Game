@@ -50,6 +50,5 @@ def evaluateAndPrintFeedback(secret_code, guess):
         if result[i] == '*' and secret_counts.get(g, 0) > 0:
             result[i] = 'W'
             secret_counts[g] -= 1
-
     # Step 3: Print formatted feedback (with attempt count)
     print(f"\n[  {'  |  '.join(guess_list)}  ] -> [  {'  |  '.join(result)}  ]\n")
