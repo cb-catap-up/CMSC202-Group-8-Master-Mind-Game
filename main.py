@@ -14,7 +14,7 @@ from constants import END_SCREEN_ART, END_CREDITS
 def runApplication(re_run = False):
 
     if not re_run:
-                # clear console for user experience
+        # clear console for user experience
         clear_console()
 
         # ask if new user and validate
