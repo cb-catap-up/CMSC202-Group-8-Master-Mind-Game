@@ -6,6 +6,9 @@ from helpers.clear_console import clear_console
 # This function provides the rules and decription on how to play the game
 def showDescription(clear_description = False):
 
+    # clear console for better user experiece
+    clear_console()
+
     if not clear_description:
         # prints out art for game
         print(ASCII_ART)
