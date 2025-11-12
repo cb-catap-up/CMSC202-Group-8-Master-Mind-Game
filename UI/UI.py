@@ -1,5 +1,4 @@
 from helpers.global_variables import readGlobalVariable
-
 # This prints the initial guess first
 # Then evaluates and prints the feedback
 # To be looped for every guess input
