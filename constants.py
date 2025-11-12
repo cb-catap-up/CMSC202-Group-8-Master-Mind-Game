@@ -75,13 +75,13 @@ STEP_ONE_INSTRUCTION = "At the beginning of the game, you will see a decoding bo
 STEP_TWO_INSTRUCTION = "Enter a sequence of 4 letters for your guesses (you will have Red, Blue, Green, Orange, White, and Yellow)." \
 "Hit enter to submit your guess."
 
-STEP_THREE_INSTRUCTION = "The table near the decoding board shows how close you are to the correct answer () means correct," \
-"X means the color is present but in a different location and * if it does not appear at all"
+STEP_THREE_INSTRUCTION = "The table near the decoding board shows how close you are to the correct answer B means correct," \
+"W means the color is present but in a different location and * if it does not appear at all"
 
 STEP_FOUR_INSTRUCTION = "Start with different colors to test as many variations as possible and weed out colors that don't appear in the code."
 
 STEP_FIVE_INSTRUCTION = 'You have ten attempts to crack the code by the number of lines on the board.' \
-'The game ends when you find the correct sequence and all the key circles turn (), or when you run out of tries.'
+'The game ends when you find the correct sequence and all the key spaces turn B, or when you run out of tries.'
 
 GLOBALS_PATH = os.path.join("globals", "global_variables.txt")
 

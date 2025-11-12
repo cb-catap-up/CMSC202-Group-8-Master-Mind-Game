@@ -11,7 +11,8 @@ def saveGlobalVariable(variable, value):
     # Append new global variable.
     with open(GLOBALS_PATH, "a") as file:
         file.write(f"{str(variable)},{str(value)}\n")
-    time.sleep(1)
+    # this is to allow file to write to file
+    time.sleep(0.5)
 
 # read variable from file
 def readGlobalVariable(variable):
