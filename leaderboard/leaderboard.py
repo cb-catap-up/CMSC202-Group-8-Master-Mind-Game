@@ -1,9 +1,8 @@
-from constants import SCORE_PATH, LEADERBOARD_ART
-from helpers.global_variables import readGlobalVariable, saveGlobalVariable
+from constants import SCORE_PATH
 from leaderboard.show_win_or_lose import showWinOrLose
 from leaderboard.get_top_five_leaders import getTopFiveLeaders
-from leaderboard.leaderboard_input_validator import askToshowLeaderboard
 from helpers.clear_console import clear_console
+from helpers.yes_or_no_input_validator import validateYesOrNoInput
 
 def leaderboard():
 
@@ -23,10 +22,10 @@ def leaderboard():
     except FileNotFoundError:
         print("Error: The file does not exist!")
 
-    show_leaderboard = str(input(f"\nWould you like to see the leaderboards Y or N?: "))
+    show_leaderboard = "\nWould you like to see the leaderboards Y or N?: "
 
     # ask if the user wants to see the leaderboards
-    if askToshowLeaderboard(show_leaderboard):
+    if validateYesOrNoInput(show_leaderboard):
         # clear console for better user experience
         clear_console()
         # show leaderbords

@@ -5,6 +5,7 @@ from helpers.global_variables import readGlobalVariable
 from game.write_score_to_file import writeScoreToFile
 from helpers.clear_console import clear_console
 from helpers.global_variables import saveGlobalVariable
+from ui.ui import showUi
 
 #Generate secret code of 4 colors
 def randomizer (colors):
@@ -23,12 +24,18 @@ def playMastermind():
 
     # gets currently logged in user
     user_name = readGlobalVariable('current_user')
-    valid_colors = ["R", "G", "B", "Y", "W", "O"]  # Available colors
+
+    # Available colors
+    valid_colors = ["R", "G", "B", "Y", "W", "O"]
+
+    # show basic instructions
+    showBasicInstructions(valid_colors)
+
+    # random color set
     color_set = randomizer(valid_colors)
 
-    print(f"Available colors: {', '.join(valid_colors)}\n")
-    print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)\n")
-    
+    print(color_set)
+
     for count in range(0, 10):
         
         while True:  # Keep asking until valid input is provided
@@ -42,9 +49,19 @@ def playMastermind():
             else:
                 print(f"{error_message}")
                 print("\nPlease try again.\n")
-        
+        # clears console and update instructions
+        if count > 0:
+            clear_console()
+            # show basic instructions
+            showBasicInstructions(valid_colors)
+
         is_match = checkMatch(color_set, g)
-        #add UI to show black pegs when color is correct and white pegs if incorrect
+
+        #save guess to global variable
+        saveGlobalVariable(f"{user_name}_guess_{count}", ''.join(g).lower())
+
+        #show UI to show black pegs when color is correct and white pegs if incorrect
+        showUi(color_set, g, count, user_name)
 
         if is_match:
             attempt_number = count + 1
@@ -65,3 +82,7 @@ def playMastermind():
                 # save 0 points for losing
                 writeScoreToFile(user_name, 0)
                 saveGlobalVariable('current_user_score', 0)
+
+def showBasicInstructions(valid_colors):
+    print(f"Available colors: {', '.join(valid_colors)}\n")
+    print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)\n")

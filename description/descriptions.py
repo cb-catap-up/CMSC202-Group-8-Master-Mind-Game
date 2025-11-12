@@ -1,35 +1,30 @@
 from constants import DESCRIPTION, ASCII_ART
-from description.descriptions_input_validator import validateDescriptionsInput
+from helpers.yes_or_no_input_validator import validateYesOrNoInput
 from description.instructions import showInstruction
 from helpers.clear_console import clear_console
 
 # This function provides the rules and decription on how to play the game
-def showDescription(clear_description = False):
+def showDescription():
 
-    # clear console for better user experiece
-    clear_console()
+    # prints out art for game
+    print(ASCII_ART)
+    
+    # prints out description of the game
+    print(DESCRIPTION)
 
-    if not clear_description:
-        # prints out art for game
-        print(ASCII_ART)
-
-    if not clear_description:
-        # prints out description of the game
-        print(DESCRIPTION)
-
-    # type cast user input to string
-    is_game_starting = str(input("\nWould you like to play the game Y or N?: "))
+    # text for user if they want to play
+    is_game_starting = "\nWould you like to play the game Y or N?: "
 
     # this validates the input for the user if the users wants to play
-    validated_game_starting = validateDescriptionsInput(is_game_starting, showDescription)
+    validated_game_starting = validateYesOrNoInput(is_game_starting)
 
 
     if validated_game_starting:
-        # shows instructions
-        show_instruction = str(input("\nWould you like to see the instructions Y or N?: "))
+        # text for user if they want to see instruction
+        show_instruction = "\nWould you like to see the instructions Y or N?: "
 
         # this validates the input for the user if the user wants to see the instruction
-        validated_show_instruction = validateDescriptionsInput(show_instruction, showDescription)
+        validated_show_instruction = validateYesOrNoInput(show_instruction)
 
         if validated_show_instruction:
             # shows a more detailed instruction
@@ -37,5 +32,5 @@ def showDescription(clear_description = False):
 
     # clears console to run the game cleaner
     clear_console()
-    
+
     return validated_game_starting
