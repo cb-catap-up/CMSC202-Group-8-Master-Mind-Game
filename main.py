@@ -13,33 +13,33 @@ from constants import END_SCREEN_ART, END_CREDITS, GREEN, RESET, BOLD
 # main function for the application
 def runApplication(re_run = False):
 
-    # if not re_run:
-    #     # clear console for user experience
-    #     clear_console()
+    if not re_run:
+        # clear console for user experience
+        clear_console()
 
-    #     # ask if new user and validate
-    #     is_new_user = askForRegistration()
-    #     # if new register the user
-    #     if is_new_user:
-    #         # clear console
-    #         clear_console()
-    #         # register user
-    #         registerUser()
+        # ask if new user and validate
+        is_new_user = askForRegistration()
+        # if new register the user
+        if is_new_user:
+            # clear console
+            clear_console()
+            # register user
+            registerUser()
 
-    #         # this allows time for python to write to file
-    #         time.sleep(1)
-    #         # clear console
-    #         clear_console()
-    #         print('Please enter your credentials again')
+            # this allows time for python to write to file
+            time.sleep(1)
+            # clear console
+            clear_console()
+            print('Please enter your credentials again')
 
-    #     # login user
-    #     askAndValidateUsernameAndPassWord()
+        # login user
+        askAndValidateUsernameAndPassWord()
 
-    #     # clears console for better experience for the players
-    #     clear_console()
+        # clears console for better experience for the players
+        clear_console()
 
-    # # start and play game
-    # playMastermind()
+    # start and play game
+    playMastermind()
 
     # show leaderboard
     leaderboard()
@@ -53,7 +53,7 @@ def runApplication(re_run = False):
 
     else:
         # clear variables and console
-        # clearGlobalVariables()
+        clearGlobalVariables()
         clear_console()
 
 
