@@ -5,7 +5,7 @@ from constants import (
     STEP_TWO_INSTRUCTION,
     STEP_THREE_INSTRUCTION,
     STEP_FOUR_INSTRUCTION,
-    STEP_FIVE_INSTRUCTION
+    STEP_FIVE_INSTRUCTION,
 )
 
 # this shows a more detailed instruction for the user

@@ -29,8 +29,32 @@ def leaderboard():
         # clear console for better user experience
         clear_console()
         # show leaderbords
-        print("Leaderboards\n")
+        title = " Leaderboards "
+        width = 35  # a bit wider to fit medals
+        print("┌" + "─" * (width - 2) + "┐")
+        print("│" + title.ljust(width - 2) + "│")
+        print("├" + "─" * (width - 2) + "┤")
+
         leaders = getTopFiveLeaders(leaderboard_list)
 
-        for lead in leaders:
-            print("{:<10} {:<10}".format(lead[0], lead[1]))
+        # Print leaderboard entries inside the box
+        for i, lead in enumerate(leaders, start=1):
+            name = str(lead[0])
+            score = str(lead[1])
+
+            # Add medals
+            medal = " 🏅"
+
+            if i == 1:
+                medal = " 🥇"
+            elif i == 2:
+                medal = " 🥈"
+            elif i == 3:
+                medal = " 🥉"
+
+            # Combine name + medal and pad properly
+            name_with_medal = f"{name}{medal}"
+            line = f"{i:<2} {name_with_medal:<18}{score:>8}"
+            print("│ " + line.ljust(width - 4) + "│")
+
+        print("└" + "─" * (width - 2) + "┘")

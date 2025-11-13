@@ -1,4 +1,4 @@
-from constants import DESCRIPTION, ASCII_ART
+from constants import DESCRIPTION, ASCII_ART, BOLD, GREEN, RESET
 from helpers.yes_or_no_input_validator import validateYesOrNoInput
 from description.instructions import showInstruction
 from helpers.clear_console import clear_console
@@ -7,19 +7,20 @@ from helpers.clear_console import clear_console
 def showDescription():
 
     # prints out art for game
-    print(ASCII_ART)
+    print(f"{BOLD}{GREEN}{ASCII_ART}{RESET}")
     
     # prints out description of the game
     print(DESCRIPTION)
 
     # text for user if they want to play
-    is_game_starting = "\nWould you like to play the game Y or N?: "
+    is_game_starting = f"\nWould you like to play the game Y or N?: "
 
     # this validates the input for the user if the users wants to play
     validated_game_starting = validateYesOrNoInput(is_game_starting)
 
 
     if validated_game_starting:
+        clear_console()
         # text for user if they want to see instruction
         show_instruction = "\nWould you like to see the instructions Y or N?: "
 
