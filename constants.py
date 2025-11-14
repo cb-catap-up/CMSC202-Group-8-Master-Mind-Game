@@ -17,6 +17,7 @@ RESET = "\033[0m"
 
 BOLD = "\033[1m"
 
+ORANGE = "\033[38;2;255;165;0m"
 
 ASCII_ART = ("""
   🔴🔵🟢🟠⚪🟡  WELCOME 🔴🔵🟢🟠⚪🟡
@@ -54,30 +55,12 @@ ASCII_ART_WINNER = (f"""
 """)
 
 ASCII_ART_LOSER = ("""
- 
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠚⠉⠁⠀⠀⠉⠙⠒⢄⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢀⠔⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢢⡀⠀⠀⠀  
-⠀⠀⠀⠀⠀⠀⡰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀  
-⠀⠀⠀⠀⠀⢠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢇⠀  
-⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄  
-⠀⠀⠀⠀⢸⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇   __     __            _                      _ 
-⠀⠀⠀⠀⠸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   \ \   / /           | |                    | |
-⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘    \ \_/ /__  _   _   | |     ___  ___  ___  | |
-⠀⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⠀⢀⣴⣶⡄⠀⠀⠀⠀⠀⢀⣶⡆⠀⢠⠇     \   / _ \| | | |  | |    / _ \/ __|/ _ \ | | 
-⠀⠀⠀⠀⠀⠀⣣⠀⠀⠀⠀⠀⠀⠀⠙⠛⠁⠀⠀⠀⠀⠀⠈⠛⠁⡰⠃⠀      | | (_) | |_| |  | |___| (_) \__ \  __/ |_|
-⠀⠀⠀⠀⢠⠞⠋⢳⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠜⠁⠀⠀      |_|\___/ \__,_|  |______\___/|___/\___| (_)
-⠀⠀⠀⣰⠋⠀⠀⠀⢷⠙⠲⢤⣀⡀⠀⠀⠀⠀⠴⠴⣆⠴⠚⠁⠀⠀⠀⠀  
-⠀⠀⣰⠃⠀⠀⠀⠀⠘⡇⠀⣀⣀⡉⠙⠒⠒⠒⡎⠉⠀⠀⠀⠀⠀⠀⠀⠀  
-⠀⢠⠃⠀⠀⢶⠀⠀⠀⢳⠋⠁⠀⠙⢳⡠⠖⠚⠑⠲⡀⠀⠀⠀⠀⠀⠀⠀  
-⠀⡎⠀⠀⠀⠘⣆⠀⠀⠈⢧⣀⣠⠔⡺⣧⠀⡴⡖⠦⠟⢣⠀⠀⠀⠀⠀⠀  
-⢸⠀⠀⠀⠀⠀⢈⡷⣄⡀⠀⠀⠀⠀⠉⢹⣾⠁⠁⠀⣠⠎⠀⠀⠀⠀⠀⠀  
-⠈⠀⠀⠀⠀⠀⡼⠆⠀⠉⢉⡝⠓⠦⠤⢾⠈⠓⠖⠚⢹⠀⠀⠀⠀⠀⠀⠀  
-⢰⡀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠁⠀⠀⠀⢸⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀  
-⠀⠳⡀⠀⠀⠀⠀⠀⠀⣀⢾⠀⠀⠀⠀⣾⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀  
-⠀⠀⠈⠐⠢⠤⠤⠔⠚⠁⠘⣆⠀⠀⢠⠋⢧⣀⣀⡼⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠈⠁⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-                                               
+   __     __            _                      _ 
+   \ \   / /           | |                    | |
+    \ \_/ /__  _   _   | |     ___  ___  ___  | |
+     \   / _ \| | | |  | |    / _ \/ __|/ _ \ | | 
+      | | (_) | |_| |  | |___| (_) \__ \  __/ |_|
+      |_|\___/ \__,_|  |______\___/|___/\___| (_)                                               
 """)
 
 
@@ -121,16 +104,25 @@ DESCRIPTION = "Mastermind is an addictive puzzle game that you can spend a lot o
 STEP_ONE_INSTRUCTION = "At the beginning of the game, you will see a decoding board with ten rows of four empty circles each. " \
 "Your task is to guess which color pattern is encrypted."
 
-STEP_TWO_INSTRUCTION = "Enter a sequence of 4 letters for your guesses (you will have Red 🔴, Blue 🔵, Green 🟢, Orange 🟠, White ⚪, and Yellow 🟡)." \
-"Hit enter to submit your guess."
 
-STEP_THREE_INSTRUCTION = "The table near the decoding board shows how close you are to the correct answer ⚫ means correct," \
-"⚪ means the color is present but in a different location and 💠 if it does not appear at all"
+STEP_TWO_INSTRUCTION = (
+    "Enter a sequence of 4 letters for your guesses "
+    "(you will have "
+    f"{ORANGE}Orange 🟠{RESET}, "
+    f"{RED}Red 🔴{RESET}, "
+    f"{BLUE}Blue🔵{RESET}, "
+    f"{GREEN}Green 🟢{RESET}, "
+    f"White ⚪, "
+    f"{YELLOW}Yellow 🟡{RESET}"
+    "). Hit enter to submit your guess."
+)
+
+STEP_THREE_INSTRUCTION = "The table near the decoding board shows how close you are to the correct answer ⚫  means correct, ⚪ means the color is present but in a different location and 💠 if it does not appear at all"
 
 STEP_FOUR_INSTRUCTION = "Start with different colors to test as many variations as possible and weed out colors that don't appear in the code."
 
 STEP_FIVE_INSTRUCTION = 'You have ten attempts to crack the code by the number of lines on the board.' \
-'The game ends when you find the correct sequence and all the key spaces turn ⚫, or when you run out of tries.'
+'The game ends when you find the correct sequence and all the key spaces turn ⚫ , or when you run out of tries.'
 
 GLOBALS_PATH = os.path.join("globals", "global_variables.txt")
 

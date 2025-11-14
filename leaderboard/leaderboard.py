@@ -1,4 +1,4 @@
-from constants import SCORE_PATH
+from constants import SCORE_PATH, RESET, BOLD, GREEN
 from leaderboard.show_win_or_lose import showWinOrLose
 from leaderboard.get_top_five_leaders import getTopFiveLeaders
 from helpers.clear_console import clear_console
@@ -29,7 +29,7 @@ def leaderboard():
         # clear console for better user experience
         clear_console()
         # show leaderbords
-        title = " Leaderboards "
+        title = f" {BOLD}{GREEN}Leaderboards{RESET}  🥇 🥈 🥉 🏅       "
         width = 35  # a bit wider to fit medals
         print("┌" + "─" * (width - 2) + "┐")
         print("│" + title.ljust(width - 2) + "│")
