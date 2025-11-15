@@ -29,7 +29,7 @@ def leaderboard():
         # clear console for better user experience
         clear_console()
         # show leaderbords
-        title = f" {BOLD}{GREEN}Leaderboards{RESET}  🥇 🥈 🥉 🏅       "
+        title = f" Leaderboards "
         width = 35  # a bit wider to fit medals
         print("┌" + "─" * (width - 2) + "┐")
         print("│" + title.ljust(width - 2) + "│")
