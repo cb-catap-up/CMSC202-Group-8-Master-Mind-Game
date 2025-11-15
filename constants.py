@@ -131,3 +131,5 @@ SCORE_PATH = os.path.join('database', 'score.txt')
 COLOR_MAP = {"r": "🔴", "g": "🟢", "b": "🔵", "y": "🟡", "w": "⚪", "o": "🟠",}
 
 COLOR_FEEDBACK_MAP = {"b": "⚫", "w": "⚪", "*": "💠"}
+
+PLAYER_PATH = db_path = os.path.join("database", "players.txt")

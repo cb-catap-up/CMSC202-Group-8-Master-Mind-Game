@@ -2,11 +2,12 @@ import random
 from game.validation import validateInput
 from game.scoring import calculateScore
 from helpers.global_variables import readGlobalVariable
+from helpers.map_colors import mapColors
 from game.write_score_to_file import writeScoreToFile
 from helpers.clear_console import clear_console
 from helpers.global_variables import saveGlobalVariable
 from ui.ui import showUi
-from constants import COLOR_MAP
+
 
 #Generate secret code of 4 colors
 def randomizer (colors):
@@ -34,6 +35,9 @@ def playMastermind():
 
     # random color set
     color_set = randomizer(valid_colors)
+
+    saveGlobalVariable('answer', ''.join(color_set).lower())
+
 
     for count in range(0, 10):
         
@@ -76,18 +80,12 @@ def playMastermind():
                 print("\n ❌ Try again.\n")
             else:
                 clear_console()
-                print("You've used all 10 attempts.")
-                print(f"\nThe secret code was: {color_set}")
                 # save 0 points for losing
                 writeScoreToFile(user_name, 0)
                 saveGlobalVariable('current_user_score', 0)
 
+# shows basic instruction
 def showBasicInstructions(valid_colors):
-    mapped_valid_colors = []
-
-    # assigned each color with the respective circle
-    for color in valid_colors:
-        mapped_valid_colors.append(f"{color} {COLOR_MAP[color.lower()]}")
-
-    print(f"Available colors: {', '.join(mapped_valid_colors)}\n")
+    mapped_colors = mapColors(valid_colors)
+    print(f"Available colors: {', '.join(mapped_colors)}\n")
     print("Enter your guess as 4 letters without spaces or commas (e.g., RGBY)\n")

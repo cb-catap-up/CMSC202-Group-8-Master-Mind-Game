@@ -1,14 +1,26 @@
 import os
-import time
 from registration.cipher import decryptPassword
 from registration.registration import usernameExists
 from helpers.clear_console import clear_console
 from helpers.global_variables import saveGlobalVariable
-
+from constants import PLAYER_PATH
 
 def askForRegistration():
 
     while True:
+
+        users = []
+
+        # read users
+        file = open(PLAYER_PATH,'r')
+
+        # add users to array
+        for i in file:
+            users.append(i)
+        # if empty force user registration
+        if len(users) == 0:
+            return True
+
         new_player = str(input('Are you a new user Y / N?: ')).lower()
         
         if new_player == 'y':
@@ -27,9 +39,8 @@ def askAndValidateUsernameAndPassWord():
     # save all read files with username and password as a dictionary
     username_and_password_map = {}
     # Check if password is correct
-    db_path = os.path.join("database", "players.txt")
     try:
-        with open(db_path, "r") as file:
+        with open(PLAYER_PATH, "r") as file:
             for line in file:
                 saved_user_name, encrypted_password = line.strip().split(",")
                 username_and_password_map[saved_user_name] = encrypted_password
@@ -56,5 +67,3 @@ def askAndValidateUsernameAndPassWord():
     
     # save to globals
     saveGlobalVariable('current_user', user_name)
-    # this allows time for python to write to file
-

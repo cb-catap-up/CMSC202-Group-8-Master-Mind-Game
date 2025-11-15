@@ -1,6 +1,5 @@
 import os
 from registration.cipher import encryptPassword
-from helpers.clear_console import clear_console
 
 def usernameExists(username):
     # Check if a given username already exists in the player database.
