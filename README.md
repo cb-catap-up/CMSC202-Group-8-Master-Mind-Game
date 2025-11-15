@@ -15,3 +15,9 @@ Run the game:
 ```
 python3 main.py
 ```
+
+Demo of the game:
+
+```
+https://www.youtube.com/watch?v=lm_mgf6QnSQ
+```
