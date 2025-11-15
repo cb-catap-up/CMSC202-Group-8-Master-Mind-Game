@@ -30,31 +30,43 @@ def leaderboard():
         clear_console()
         # show leaderbords
         title = f" Leaderboards "
-        width = 35  # a bit wider to fit medals
+        player_name = "Player Name"
+        player_score = "score"
+        width = 35
         print("┌" + "─" * (width - 2) + "┐")
-        print("│" + title.ljust(width - 2) + "│")
+
+        # Title line
+        print("│" + title.center(width - 2) + "│")
+
+        # table sides
         print("├" + "─" * (width - 2) + "┤")
+
+        # header line
+        player_line = f"{player_name:<2}{'':<10}{player_score:>8}"
+        print("│" + player_line.ljust(width - 2) + "│")
 
         leaders = getTopFiveLeaders(leaderboard_list)
 
-        # Print leaderboard entries inside the box
+        # Leaderboard entries
         for i, lead in enumerate(leaders, start=1):
             name = str(lead[0])
             score = str(lead[1])
 
-            # Add medals
-            medal = " 🏅"
-
+            # Medal assignment
             if i == 1:
                 medal = " 🥇"
             elif i == 2:
                 medal = " 🥈"
             elif i == 3:
                 medal = " 🥉"
-
-            # Combine name + medal and pad properly
+            else:
+                medal = " 🏅"
+            #  add medal to name based on user score
             name_with_medal = f"{name}{medal}"
-            line = f"{i:<2} {name_with_medal:<18}{score:>8}"
-            print("│ " + line.ljust(width - 4) + "│")
-
+            # format line
+            line = f"{i:<2} {name_with_medal:<18}{score:>5}"
+            # print line for scores in the middle
+            print("│" + line.ljust(width - 3) + "│")
+        # footer of the tables
         print("└" + "─" * (width - 2) + "┘")
+
