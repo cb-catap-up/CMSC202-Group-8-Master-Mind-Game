@@ -126,7 +126,7 @@ STEP_FIVE_INSTRUCTION = 'You have ten attempts to crack the code by the number o
 
 GLOBALS_PATH = os.path.join("globals", "global_variables.txt")
 
-SCORE_PATH = os.path.join('database', 'score.txt')
+SCORE_PATH = os.path.join('database', 'highscores.txt')
 
 COLOR_MAP = {"r": "🔴", "g": "🟢", "b": "🔵", "y": "🟡", "w": "⚪", "o": "🟠",}
 
