@@ -14,9 +14,10 @@ def showUi(secret_code, guess, count, current_user):
     # evaluate current guess
     evaluateAndPrintFeedback(secret_code, guess)
 
-    # Step 4: print extra input for other then board
+    # print extra input for other then board
     displayBoard(10 - len(previous_guesses) - 1)
 
+# gets previous guess from global variables
 def getPreviousGuesses(current_user, count):
     guess_array = []
     
@@ -24,6 +25,8 @@ def getPreviousGuesses(current_user, count):
         guess_array.append(readGlobalVariable(f"{current_user}_guess_{i}"))
     
     return guess_array
+
+# prints the extra empty input when starting game
 def displayBoard(count):
     init = [COLOR_FEEDBACK_MAP['*']] * 4
     empty_guess = "  ".join(init)

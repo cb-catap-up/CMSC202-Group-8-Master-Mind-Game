@@ -3,7 +3,7 @@ import time
 
 """
     This function saves and reads global variables from a separate text file for use on every part 
-    of the application to remove dependency of each application modules with each other
+    of the application, to remove dependency of each application modules with each other
 """
 
 # save variable to global_variables.txt file
@@ -16,14 +16,15 @@ def saveGlobalVariable(variable, value):
 
 # read variable from file
 def readGlobalVariable(variable):
-
+    # initialize global dictionary
     globals_map = {}
 
+    # save globals to dictionary
     with open(GLOBALS_PATH, "r") as file:
         for line in file:
             global_variable, global_value = line.strip().split(",")
             globals_map[global_variable] = global_value
-
+    # returns called variable
     return globals_map[variable]
 
 # clear globals

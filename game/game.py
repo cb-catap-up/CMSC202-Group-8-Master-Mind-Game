@@ -38,7 +38,7 @@ def playMastermind():
 
     saveGlobalVariable('answer', ''.join(color_set).lower())
 
-
+    # loop ten times and breaks if the user got correct
     for count in range(0, 10):
         
         while True:  # Keep asking until valid input is provided
@@ -71,6 +71,7 @@ def playMastermind():
             score = calculateScore(attempt_number)
             # write score
             writeScoreToFile(user_name, score)
+            # save current score to globals for use later
             saveGlobalVariable('current_user_score', score)
             print("🎉 Your guess is correct! 🎉 \n")
             break

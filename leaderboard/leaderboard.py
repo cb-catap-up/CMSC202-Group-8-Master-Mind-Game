@@ -1,4 +1,4 @@
-from constants import SCORE_PATH, RESET, BOLD, GREEN
+from constants import SCORE_PATH
 from leaderboard.show_win_or_lose import showWinOrLose
 from leaderboard.get_top_five_leaders import getTopFiveLeaders
 from helpers.clear_console import clear_console

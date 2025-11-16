@@ -12,7 +12,7 @@ from constants import END_SCREEN_ART, END_CREDITS, GREEN, RESET, BOLD
 
 # main function for the application
 def runApplication(re_run = False):
-
+    # this occurs when the user wants to play again and is already logged in
     if not re_run:
         # clear console for user experience
         clear_console()
@@ -63,6 +63,7 @@ if __name__ == "__main__":
 
     # this shows the user the instructions and asks if they want to play
     if showDescription():
+        # runs application
         runApplication()
 
     # print endscreen and credits
