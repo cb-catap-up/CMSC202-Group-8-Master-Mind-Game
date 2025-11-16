@@ -11,12 +11,15 @@ def askForRegistration():
 
         users = []
 
-        # read users
-        file = open(PLAYER_PATH,'r')
+        # create empty file if missing
+        if not os.path.exists(PLAYER_PATH):
+            open(PLAYER_PATH, "w").close()
 
-        # add users to array
-        for i in file:
-            users.append(i)
+        # reads file
+        with open(PLAYER_PATH, "r") as file:
+            for line in file:
+                users.append(line.strip())
+
         # if empty force user registration
         if len(users) == 0:
             return True
