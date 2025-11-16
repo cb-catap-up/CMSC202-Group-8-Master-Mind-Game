@@ -31,7 +31,7 @@ def leaderboard():
         # show leaderbords
         title = f" Leaderboards "
         player_name = "Player Name"
-        player_score = "score"
+        player_score = "Attempts"
         width = 35
         print("┌" + "─" * (width - 2) + "┐")
 
@@ -42,7 +42,7 @@ def leaderboard():
         print("├" + "─" * (width - 2) + "┤")
 
         # header line
-        player_line = f"{player_name:<2}{'':<10}{player_score:>8}"
+        player_line = f"{player_name:<2}{'':<10}{player_score:>10}"
         print("│" + player_line.ljust(width - 2) + "│")
 
         leaders = getTopFiveLeaders(leaderboard_list)
