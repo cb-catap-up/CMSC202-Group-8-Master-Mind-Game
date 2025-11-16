@@ -19,5 +19,5 @@ python3 main.py
 Demo of the game:
 
 ```
-https://www.youtube.com/watch?v=lm_mgf6QnSQ
+https://www.youtube.com/watch?v=rf0wT6AHqpQ
 ```
